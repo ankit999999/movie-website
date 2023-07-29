@@ -35,10 +35,18 @@ const Home = () => {
     <>
       {heroSlideItems.length !== 0 && <Hero data={heroSlideItems} />}
       {trendingMovies.length !== 0 && (
-        <CardCarousal dataList={trendingMovies} heading="Trending Movies" />
+        <CardCarousal
+          id={0}
+          dataList={trendingMovies}
+          heading="Trending Movies"
+        />
       )}
       {trendingOnTv.length !== 0 && (
-        <CardCarousal dataList={trendingOnTv} heading="Trending TV Shows" />
+        <CardCarousal
+          id={1}
+          dataList={trendingOnTv}
+          heading="Trending TV Shows"
+        />
       )}
     </>
   );

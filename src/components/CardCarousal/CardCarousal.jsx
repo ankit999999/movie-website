@@ -6,16 +6,16 @@ import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 
 import classes from "./CardCarousal.module.scss";
 
-const CardCarousal = ({ dataList, heading }) => {
+const CardCarousal = ({ dataList, heading, id }) => {
   const box = document.getElementsByClassName(classes["card-carousal"]);
   // console.log(box);
   const backScroll = () => {
-    const width = box[0].clientWidth;
-    box[0].scrollLeft -= width;
+    const width = box[id].clientWidth;
+    box[id].scrollLeft -= width;
   };
   const forwardScroll = () => {
-    const width = box[0].clientWidth;
-    box[0].scrollLeft += width;
+    const width = box[id].clientWidth;
+    box[id].scrollLeft += width;
   };
 
   return (
