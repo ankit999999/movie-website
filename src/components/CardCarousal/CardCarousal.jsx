@@ -8,7 +8,6 @@ import classes from "./CardCarousal.module.scss";
 
 const CardCarousal = ({ dataList, heading, id }) => {
   const box = document.getElementsByClassName(classes["card-carousal"]);
-  // console.log(box);
   const backScroll = () => {
     const width = box[id].clientWidth;
     box[id].scrollLeft -= width;

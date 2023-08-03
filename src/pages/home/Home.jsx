@@ -24,6 +24,8 @@ const Home = () => {
         setHeroSlideItems(response.results.slice(0, 3));
         setTrendingMovies(response.results);
         setTrendingOnTv(tvresponse.results);
+        console.log(response);
+        // console.log(tvresponse);
       } catch {
         console.log("error");
       }

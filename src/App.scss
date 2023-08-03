@@ -16,7 +16,7 @@ html {
   }
 
   @media only screen and (max-width: $mobile-width) {
-    font-size: 80%;
+    font-size: 60%;
   }
 }
 
@@ -25,8 +25,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
 
-  background-color: $body-bg;
-  color: $txt-color;
+  background-color: $bg-dull;
+  color: $dull-txt-color;
 }
 
 a {
@@ -36,7 +36,7 @@ a {
 
 @media (hover: hover) {
   a:hover {
-    color: $color-primary-purple;
+    color: $color-primary;
   }
 }
 
