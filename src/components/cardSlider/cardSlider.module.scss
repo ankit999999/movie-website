@@ -1,0 +1,33 @@
+@import "../../scss/variables";
+
+.card-carousal-container {
+  position: relative;
+  margin: 2em;
+
+  .heading {
+    color: $color-primary;
+    user-select: none;
+  }
+  .card-carousal {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: lighten($bg-dull, 10%);
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 1em;
+    & > * {
+      scroll-snap-align: start;
+    }
+  }
+}

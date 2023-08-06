@@ -4,6 +4,11 @@
 .navContainer {
   @include flex(center, space-between);
   padding: 0.5rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: lighten($bg-dull, 10%);
 
   .title {
     font-weight: 900;
@@ -41,7 +46,7 @@
       color: $dull-txt-color;
       cursor: pointer;
 
-      &.active {
+      &.active a {
         color: $txt-color;
       }
     }

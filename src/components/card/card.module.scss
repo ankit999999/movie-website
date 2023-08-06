@@ -4,40 +4,45 @@
   margin: 0.5rem;
   min-width: 12em;
   overflow: hidden;
-  // background-color: darken($body-bg, 5%);
-  // border: solid 5px $white;
   border-radius: 5%;
   transition: 0.4s;
   cursor: pointer;
   box-shadow: $box-shadow;
   user-select: none;
-  transition: 1s;
+  transition: 0.3s;
+  line-height: 1.2;
 
   &:hover {
-    // border: solid 5px $color-tertiary-purple;
-    // background-color: $white;
     box-shadow: $dark-box-shadow;
   }
   img {
     width: 100%;
     height: auto;
     filter: grayscale(50%);
-    // border: solid $color-tertiary-purple 5px;
     &:hover {
       filter: grayscale(0%);
     }
   }
-  figcaption {
+  .figcaption {
     width: 100%;
-    text-align: center;
     display: inline-block;
-    color: $txt-color;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0 0.5em;
+    padding: 0 0.7em;
+  }
+  .figcaption1 {
+    color: $txt-color;
+    font-size: 1em;
+    font-weight: 600;
+    transition: 0.1s;
     &:hover {
       color: $dull-txt-color;
     }
+  }
+  .figcaption2 {
+    color: $dull-txt-color;
+    font-size: 0.7em;
+    padding-bottom: 0.5em;
   }
 }
