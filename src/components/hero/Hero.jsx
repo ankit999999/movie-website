@@ -19,7 +19,7 @@ const Hero = () => {
           params
         })
         setSlideData(response.results.slice(0, 4))
-        console.log(response)
+        // console.log(response)
       } catch {
         console.log('error')
       }
