@@ -4,6 +4,8 @@ import { useParams } from 'react-router'
 
 import tmdbApi from '../../api/tmdbApi'
 
+import classes from './details.module.scss'
+
 const VideoList = (props) => {
   const { category } = useParams()
 
@@ -37,8 +39,8 @@ const Video = (props) => {
   }, [])
 
   return (
-    <div className="video">
-      <div className="video__title">
+    <div className={classes['video']}>
+      <div className={classes['video__title']}>
         <h2>{item.name}</h2>
       </div>
       <iframe
