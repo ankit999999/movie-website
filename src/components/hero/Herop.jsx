@@ -4,12 +4,14 @@ import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
 
 import { Link } from 'react-router-dom'
 
-import classes from './hero.module.scss'
+import classes from './herop.module.scss'
+
 import apiConfig from '../../api/apiConfig'
 import tmdbApi, { movieType } from '../../api/tmdbApi'
 
-const Hero = () => {
+const Herop = () => {
   const [slideData, setSlideData] = useState([])
+  const [slide, setSlide] = useState(0)
 
   useEffect(() => {
     const getSlideData = async () => {
@@ -27,8 +29,6 @@ const Hero = () => {
     getSlideData()
   }, [])
 
-  const [slide, setSlide] = useState(0)
-
   const nextSlide = () => {
     setSlide((slide) => (slide + 1) % slideData.length)
   }
@@ -37,32 +37,37 @@ const Hero = () => {
     setSlide(slide === 0 ? slideData.length - 1 : slide - 1)
   }
 
+  // to={`movie/${item.id}`}
   return (
-    <div className={classes.carousel}>
+    <div className={classes['carousel']}>
       <BsArrowLeftCircleFill
         onClick={prevSlide}
-        className={`${classes.arrow} ${classes['arrow-left']}`}
+        className={`${classes['arrow']} ${classes['arrow-left']}`}
       />
       {slideData.map((item, idx) => {
         return (
-          <Link
-            to={`movie/${item.id}`}
+          <div
             key={idx}
             className={
               slide === idx
                 ? classes['slide-container']
                 : `${classes['slide-container']} ${classes['slide-hidden']}`
             }
+            style={{
+              backgroundImage: `url(${apiConfig.originalImage(
+                item.backdrop_path
+              )})`
+            }}
           >
             <div className={classes['slide-description']}>
               <h1 className={classes['slide-title']}>{item.original_title}</h1>
               <p>{item.overview}</p>
             </div>
-            <img
-              src={apiConfig.originalImage(item.backdrop_path)}
-              alt={item.original_title + 'background image'}
-              className={classes['slide']}
-            />
+            {/* <img */}
+            {/*   src={apiConfig.originalImage(item.backdrop_path)} */}
+            {/*   alt={item.original_title + 'background image'} */}
+            {/*   className={classes['slide']} */}
+            {/* /> */}
             <img
               src={apiConfig.originalImage(item.poster_path)}
               alt={item.original_title + 'poster'}
@@ -72,14 +77,14 @@ const Hero = () => {
                   : `${classes['slide']} ${classes['floating-poster']} ${classes['slide-hidden']}`
               }
             />
-          </Link>
+          </div>
         )
       })}
       <BsArrowRightCircleFill
         onClick={nextSlide}
-        className={`${classes.arrow} ${classes['arrow-right']}`}
+        className={`${classes['arrow']} ${classes['arrow-right']}`}
       />
-      <span className={classes.indicators}>
+      <span className={classes['indicators']}>
         {slideData.map((_, idx) => {
           return (
             <button
@@ -98,4 +103,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Herop

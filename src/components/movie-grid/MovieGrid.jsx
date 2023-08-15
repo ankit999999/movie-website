@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 
-import './movie-grid.scss'
+import classes from './movie-grid.module.scss'
 
 import { useParams, useNavigate } from 'react-router-dom'
 
@@ -72,16 +72,16 @@ const MovieGrid = (props) => {
 
   return (
     <>
-      <div className="section">
+      <div className={classes['section']}>
         <MovieSearch category={props.category} keyword={keyword} />
       </div>
-      <div className="movie-grid">
+      <div className={classes['movie-grid']}>
         {items.map((item, i) => (
           <Card category={props.category} data={item} key={i} />
         ))}
       </div>
       {page < totalPage ? (
-        <div className="movie-grid__loadmore">
+        <div className={classes['movie-grid__loadmore']}>
           <OutlineButton className="small" onClick={loadMore}>
             Load more
           </OutlineButton>
@@ -116,7 +116,7 @@ const MovieSearch = (props) => {
   }, [keyword, goToSearch])
 
   return (
-    <div className="movie-search">
+    <div className={classes['movie-search']}>
       <Input
         type="text"
         placeholder="Enter keyword"
