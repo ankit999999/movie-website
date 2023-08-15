@@ -61,7 +61,7 @@ const Hero = () => {
             <img
               src={apiConfig.originalImage(item.backdrop_path)}
               alt={item.original_title + 'background image'}
-              className={classes.slide}
+              className={classes['slide']}
             />
             <img
               src={apiConfig.originalImage(item.poster_path)}

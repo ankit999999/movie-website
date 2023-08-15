@@ -26,7 +26,9 @@ const Header = () => {
 
   return (
     <div className={classes.navContainer}>
-      <span className={classes.title}>films&dramas</span>
+      <Link to="/" className={classes.title}>
+        films&dramas
+      </Link>
       <ul>
         {headerNav.map((e, i) => (
           <li key={i} className={`${i === active ? classes['active'] : ''}`}>
