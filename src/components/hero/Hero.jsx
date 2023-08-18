@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react'
 
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
 
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import classes from './hero.module.scss'
 import apiConfig from '../../api/apiConfig'
 import tmdbApi, { movieType } from '../../api/tmdbApi'
+import { OutlineButton } from '../button/Button'
 
 const Hero = () => {
   const [slideData, setSlideData] = useState([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getSlideData = async () => {
@@ -45,8 +48,7 @@ const Hero = () => {
       />
       {slideData.map((item, idx) => {
         return (
-          <Link
-            to={`movie/${item.id}`}
+          <div
             key={idx}
             className={
               slide === idx
@@ -56,7 +58,13 @@ const Hero = () => {
           >
             <div className={classes['slide-description']}>
               <h1 className={classes['slide-title']}>{item.original_title}</h1>
-              <p>{item.overview}</p>
+              <p className={classes['slide-overview']}>{item.overview}</p>
+              <OutlineButton
+                className={`small ${classes['hero-btn']}`}
+                onClick={() => navigate(`/movie/${item.id}`)}
+              >
+                Watch now
+              </OutlineButton>
             </div>
             <img
               src={apiConfig.originalImage(item.backdrop_path)}
@@ -72,7 +80,7 @@ const Hero = () => {
                   : `${classes['slide']} ${classes['floating-poster']} ${classes['slide-hidden']}`
               }
             />
-          </Link>
+          </div>
         )
       })}
       <BsArrowRightCircleFill
